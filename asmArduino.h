@@ -1,0 +1,1 @@
+extern "C" { void main__(void); void loop__(void); };
