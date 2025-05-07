@@ -20,7 +20,7 @@ main__:
 
     IN r16, (DDRB -0x20)       ; Leitura de ddrb
     SBRC r16, PB2              ; Bit configurado como entrada?
-    CBI (DDRB -0x20). PB2      ; Não então colocamos
+    CBI (DDRB -0x20), PB2      ; Não então colocamos
 
     IN r16, (PORTB -0x20)      ;
     SBRC r16, PB2              ; <- Mesma lógica
