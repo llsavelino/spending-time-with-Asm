@@ -32,26 +32,26 @@ loop__: RCALL check_button     ; Verifica estado do botão com debounce
   RJMP loop__
 ;                                Sub-rotina para verificação do botão com debounce
 check_button:
-    SBIC (PIND -0x20), 0x02    ; Pula se botão NÃO pressionado
+    SBIC (PIND -0x20), PB2     ; Pula se botão NÃO pressionado
     RJMP botao_solto           ; Botão não pressionado
     ;                            Se chegou aqui, botão pode estar pressionado
 
     RCALL delay_debounce      ; Espera para debounce
-    SBIC (PIND -0x20), 0x02   ; Verifica novamente após o delay
+    SBIC (PIND -0x20), PB2    ; Verifica novamente após o delay
     RJMP botao_solto          ; Falso positivo, botão não está pressionado
 
     ;                           Botão realmente pressionado
-    SBI (PORTB -0x20), 0x00   ; Acende o LED
+    SBI (PORTB -0x20), PB0    ; Acende o LED
   RET
 
 botao_solto:
-    CBI (PORTB -0x20), 0x00     ; Apaga o LED
+    CBI (PORTB -0x20), PB0    ; Apaga o LED
   RET
 ;                                 Sub-rotina de delay para debounce
 delay_debounce:
-    LDI r30, lo8(iterations)    ;
-    LDI r31, hi8(iterations)    ;
+    LDI r30, lo8(iterations)  ;
+    LDI r31, hi8(iterations)  ;
 
-  delay_loop: SBIW r30, 0x01    ; Decrementa r30 e r31
-    BRNE delay_loop             ; Continua até zero
-  RET
+  delay_loop: SBIW r30, 0x01  ; Decrementa r30 e r31
+    BRNE delay_loop           ; Continua até zero
+  RET                         ;
