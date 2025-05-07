@@ -1,9 +1,13 @@
 #pragma once
+#ifdef __cplusplus
 extern "C" 
 { 
+#endif
   void main__               (void);
   void loop__               (void); 
-};
+#ifdef __cplusplus
+}
+#endif
 extern volatile uint8_t* portb_reg;
 extern volatile uint8_t*  ddrb_reg;
 extern volatile uint8_t*  pinb_reg;
