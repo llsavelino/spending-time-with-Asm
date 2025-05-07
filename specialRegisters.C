@@ -1,3 +1,4 @@
+#include <stdint.h>
 volatile uint8_t 
   *portb_reg  = (volatile uint8_t *)0x25, // PORTB
   *ddrb_reg   = (volatile uint8_t *)0x24, // DDRB
