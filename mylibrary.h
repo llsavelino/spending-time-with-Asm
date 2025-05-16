@@ -5,7 +5,9 @@ extern "C"
 { 
 #endif
   void main__               (void);
-  void loop__               (void); 
+  void loop__               (void);
+  void init_ADC             (void);
+  void read_ADC             (void);
 #ifdef __cplusplus
 }
 #endif
